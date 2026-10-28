@@ -13,7 +13,7 @@ const Navbar = () => {
     <div className={styles.navbar__wrapper}>
         <div className={styles['navbar__wrapper--left']}>
             <div className={styles['logo__img--wrapper']}>
-                  <Image src={Skinstric} alt="Skinstric" />
+                  <Image src={Skinstric} alt="Skinstric" className={styles.logo}/>
             </div>
             <div className={styles['section__img--wrapper']}>
              <Image src={leftbracket} alt="" className={styles.bracket}/>
