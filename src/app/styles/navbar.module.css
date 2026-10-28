@@ -10,50 +10,52 @@
 
 .navbar__wrapper--left{
     display: flex;
-    justify-content: space-between;
-    width: full;
-    margin-bottom: 3px;
+    align-items: center;
+    gap: 8px;
 }
+
 .navbar__wrapper--right {
-    padding: 12px;
-    margin-bottom: 12px;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
 }
+
 .logo__img--wrapper{
+    display: flex;
+    align-items: center;
     padding: 8px 16px;
     cursor: pointer;
-    width: 100%;
 }
 
 .section__img--wrapper{
-    display:flex;
+    display: flex;
     align-items: center;
-    justify-content: center;
-    width: 100%;
+    transform: scale(80%);
 }
 
+/* Skinstric Logo */
+.logo {
+    transform: scale(80%);
+}
+
+/* Intro section */
 .intro {
     opacity: 70%;
     margin: 0 6px;
 }
 
+/* Brackets around intro */
 .bracket{
     height: 17px;
     width: 4px;
 }
 
 .button__wrapper{
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     background-color: #1A1B1C;
-    padding: 8px 16px;
-    margin: 0px 16px;
-    position: absolute;
     width: 92px;
     height: 32px;
-    top: 15px;
-    left: 1796px;
-
+    padding: 8px 16px;
+    margin: 0 16px;
 }
