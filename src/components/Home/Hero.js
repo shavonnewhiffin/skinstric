@@ -4,6 +4,7 @@ import { useRef } from 'react'
 import Image from 'next/image'
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
+import Link from 'next/link'
 
 import LeftRectangle from '@/assets/hero/leftrectangle.png'
 import RightRectangle from '@/assets/hero/rightrectangle.png'
@@ -115,6 +116,7 @@ const Hero = () => {
         className={styles['rectangle--multi']}
         ref={multiLineRef}
       />
+      <Link href="/signup">
       <div
         className={`${styles.cta__wrapper} ${styles['cta__wrapper--right']}`}
         onMouseEnter={handleRightEnter}
@@ -128,6 +130,7 @@ const Hero = () => {
           <Image src={RightArrow} alt="" ref={rightArrowRef} />
         </figure>
       </div>
+      </Link>
 
       {/* Bottom-left description */}
       <div className={styles['skinstric__description--wrapper']}>

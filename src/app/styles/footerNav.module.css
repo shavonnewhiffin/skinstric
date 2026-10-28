@@ -1,0 +1,16 @@
+.footer__nav--wrapper{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 880px;
+    left: 32px;
+    cursor: pointer;
+}
+
+.figure__arrow--wrapper {
+    cursor: pointer;
+}
+
+.back__wrapper {
+    margin-left: 24px;
+}
