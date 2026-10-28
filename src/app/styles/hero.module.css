@@ -8,8 +8,16 @@
 .rectangle--right {
     position: absolute;
     top: 179px;
-    left: 1619px;
+    right: 0;
     z-index: -50;
+}
+
+.rectangle--multi {
+    position: absolute;
+    top: 99px;
+    right: 0;
+    z-index: -50;
+    opacity: 0
 }
 
 .skinstric__description--wrapper {
@@ -43,7 +51,7 @@
 .cta__wrapper--right {
     position: absolute;
     top: 458px;
-    left: 1761px;
+    right: 40px;
 }
 
 .cta {
