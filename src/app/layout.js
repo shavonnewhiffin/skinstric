@@ -1,5 +1,11 @@
+import { Google_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+
+const googleSans = Google_Sans({
+  subsets: ["latin"],
+  variable: "--font-google-sans",
+});
 
 export const metadata = {
   title: "Create Next App",
@@ -8,7 +14,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={googleSans.variable}>
       <body>
         <Navbar />
         {children}

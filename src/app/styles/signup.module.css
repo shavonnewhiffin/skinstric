@@ -1,0 +1,72 @@
+
+
+.test__wrapper {
+    position: absolute;
+    top: 86px;
+    left: 35px;
+    scale: 0.8;
+}
+
+.rectangle__wrapper{
+   z-index: -1000;
+}
+
+.rectangle--large{
+position: absolute;
+top: 99px;
+left: 579px;
+animation: spin 50s linear infinite;
+}
+
+
+.rectangle--medium{
+    position: absolute;
+    top: 139px;
+    left: 619px;
+    animation: spin 70s linear infinite;
+}
+
+.rectangle--small{
+    position: absolute;
+    top: 179px;
+    left: 659px;
+    animation: spin 85s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.cta__wrapper{
+    position: absolute;
+    top: 422px;
+    left: 905px;
+} 
+
+.input__underline {
+position: absolute;
+top: 512px;
+left: 751px;
+}
+
+.input__field {
+position: absolute;
+top: 448px;
+left: 750px;
+width: 100%;
+max-width: 420px;
+font-color: #D3D3D3;
+font-size: 50px;
+height: auto;
+border: none;
+background-color: #FCFCFC;
+}
+
+.input__field:focus {
+    outline: none;
+}
