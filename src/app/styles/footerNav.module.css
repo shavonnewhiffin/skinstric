@@ -14,3 +14,16 @@
 .back__wrapper {
     margin-left: 24px;
 }
+
+.proceed__wrapper {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 880px;
+    right: 32px;
+    cursor: pointer;
+}
+
+.proceed__arrow--wrapper {
+    margin-left: 24px;
+}

@@ -60,7 +60,7 @@ top: 448px;
 left: 750px;
 width: 100%;
 max-width: 420px;
-font-color: #D3D3D3;
+text-align: center;
 font-size: 50px;
 height: auto;
 border: none;
@@ -69,4 +69,60 @@ background-color: #FCFCFC;
 
 .input__field:focus {
     outline: none;
+}
+.success__wrapper {
+    position: absolute;
+    top: 430px;
+    left: 750px;
+    width: 420px;
+    text-align: center;
+}
+
+.success__title {
+    font-size: 40px;
+    color: #1A1B1C;
+}
+
+.success__text {
+    font-size: 16px;
+    color: #1A1B1C;
+    opacity: 0.6;
+    margin-top: 8px;
+}
+
+.error {
+    position: absolute;
+    top: 530px;
+    left: 750px;
+    width: 420px;
+    text-align: center;
+    font-size: 14px;
+    color: #C0392B;
+}
+
+.loading__wrapper{
+    /* Grow upward from the "Click to type" spot so the input doesn't cover it */
+    position: absolute;
+    bottom: -11px;
+    left: 47.5px;
+    translate: -50% 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.loading__text{
+    font-size: 14px;
+    color: #1A1B1C;
+    opacity: 0.6;
+    white-space: nowrap;
+}
+
+.loading__spinner{
+    display: flex;
+    font-size: 24px;
+    color: darkgrey;
+    animation: spin 1s linear infinite;
 }
