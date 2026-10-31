@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import FooterNav from '../../components/Signup/FooterNav'
 import Image from "next/image";
 import ToStartAnalysis from "@/assets/signup/tostartanalysis.png";
@@ -10,18 +10,33 @@ import Small from "@/assets/signup/small.png";
 import Cta from "@/assets/signup/clicktotype.png";
 import Underline from "@/assets/signup/underline.png";
 import styles from '@/app/styles/signup.module.css'
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { BsDot } from "react-icons/bs";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(useGSAP);
 
 // Letters (including accents), spaces, apostrophes and hyphens only
 const isValid = (value) => /^[\p{L}\s'-]+$/u.test(value.trim());
 
 const SignupForm = () => {
 
+    // State management
     const [name, setName] = useState("");
     const [location, setLocation] = useState("");
     const [step, setStep] = useState(1);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
+
+    // GSAP element for loading dots
+    const loadingDots = useRef(null)
+
+    useGSAP(() => {
+        if (!loading) return;
+        gsap.to(loadingDots.current.children, {
+            y: -4, yoyo: true, repeat: -1, stagger: 0.15
+        })
+    }, { dependencies: [loading], revertOnUpdate: true })
 
     async function handleSubmit(e){
         e.preventDefault();
@@ -86,8 +101,10 @@ const SignupForm = () => {
                   <div className={styles['loading__text']}>
                     Processing your submission
                   </div>
-                  <div className={styles['loading__spinner']}>
-                    <AiOutlineLoading3Quarters />
+                  <div className={styles['loading__icons']} ref={loadingDots}>
+                    <BsDot />
+                    <BsDot />
+                    <BsDot />
                   </div>
                 </div>
               ) : (
@@ -109,8 +126,8 @@ const SignupForm = () => {
                   type="text"
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
-                  className={styles['input__field']}
-                  placeholder="Where are you from"
+                  className={`${styles['input__field']} ${styles['input__field--location']}`}
+                  placeholder="Where are you from?"
                 />
               )}
               <Image src={Underline} alt="" className={styles['input__underline']} />

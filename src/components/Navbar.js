@@ -1,4 +1,7 @@
+"use client"
+
 import React from 'react'
+import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import Skinstric from '@/assets/nav/Skinstric.png'
 import Intro from '@/assets/nav/Intro.png'
@@ -8,6 +11,8 @@ import rightbracket from '@/assets/nav/rightbracket.png'
 import styles from '@/app/styles/navbar.module.css'
 
 const Navbar = () => {
+  const pathname = usePathname();
+
   return (
     <nav>
     <div className={styles.navbar__wrapper}>
@@ -22,9 +27,9 @@ const Navbar = () => {
             </div>
         </div>
         <div className={styles['navbar__wrapper--right']}>
-            <div className={styles.button__wrapper}>
+            {pathname === '/' &&(<div className={styles.button__wrapper}>
               <Image src={Button} alt="button" />
-              </div>
+              </div>)}
         </div>
     </div>
     </nav>

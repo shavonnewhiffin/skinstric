@@ -8,6 +8,10 @@
 }
 
 .rectangle__wrapper{
+   /* Covers the screen and hides the corners that poke out while spinning */
+   position: absolute;
+   inset: 0;
+   overflow: hidden;
    z-index: -1000;
 }
 
@@ -67,6 +71,10 @@ border: none;
 background-color: #FCFCFC;
 }
 
+.input__field--location{
+    font-size: 40px;
+}
+
 .input__field:focus {
     outline: none;
 }
@@ -120,9 +128,14 @@ background-color: #FCFCFC;
     white-space: nowrap;
 }
 
-.loading__spinner{
+.loading__icons{
     display: flex;
     font-size: 24px;
     color: darkgrey;
-    animation: spin 1s linear infinite;
+    /* animation: spin 1s linear infinite; */
+}
+
+/* Each BsDot has lots of empty space around the dot, so pull them closer */
+.loading__icons svg {
+    margin: 0 -6px;
 }
