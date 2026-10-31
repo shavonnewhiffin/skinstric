@@ -1,0 +1,49 @@
+/* Flex places the two sets side by side, centered on the page */
+.camera__wrappers{
+    display: flex;
+    justify-content: center;
+    gap: 200px;          /* space between the two sets */
+    margin-top: 152px;   /* 88px navbar + 152px = 240px from the top */
+}
+
+/* Grid stacking: every child sits in the same cell, centered on top of each other */
+.camera__wrapper--left,
+.camera__wrapper--right{
+    display: grid;
+    place-items: center;
+}
+
+.camera__wrapper--left > *,
+.camera__wrapper--right > *{
+    grid-area: 1 / 1;
+}
+
+/* Camera + title together: the title is measured from here */
+.camera__group{
+    position: relative;
+}
+
+.camera__icon {
+    transition: scale 0.3s ease;
+}
+
+.camera__icon:hover{
+scale: 1.1;
+}
+
+.camera__icon--left,
+.camera__icon--right{
+    cursor: pointer;
+}
+
+.camera__title--left{
+    position: absolute;
+    left: 108px;
+    top: -46px;
+}
+
+.camera__title--right{
+    position: absolute;
+    left: -179px;
+    top: 108px;
+}

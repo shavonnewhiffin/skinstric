@@ -4,9 +4,7 @@ import { useState, useRef } from "react";
 import FooterNav from '../../components/Signup/FooterNav'
 import Image from "next/image";
 import ToStartAnalysis from "@/assets/signup/tostartanalysis.png";
-import Large from "@/assets/signup/large.png";
-import Medium from "@/assets/signup/medium.png";
-import Small from "@/assets/signup/small.png";
+import SpinningRectangles from "@/components/SpinningRectangles";
 import Cta from "@/assets/signup/clicktotype.png";
 import Underline from "@/assets/signup/underline.png";
 import styles from '@/app/styles/signup.module.css'
@@ -83,9 +81,9 @@ const SignupForm = () => {
       </div>
       <div className={styles['form__wrapper']}>
         <div className={styles['rectangle__wrapper']}>
-          <Image src={Large} alt="" className={styles['rectangle--large']} />
-          <Image src={Medium} alt="" className={styles['rectangle--medium']} />
-          <Image src={Small} alt="" className={styles['rectangle--small']} />
+          <div className={styles['rectangle__position']}>
+            <SpinningRectangles />
+          </div>
         </div>
 
         {step === 3 ? (

@@ -1,0 +1,36 @@
+.rectangles__wrapper {
+    position: relative;
+}
+
+/* Every rectangle is centered inside the wrapper, so no top/left needed */
+.rectangle {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    height: auto;
+}
+
+/* Widths keep the original proportions: 764 / 684 / 604 */
+.rectangle--large {
+    width: 100%;
+    animation: spin 50s linear infinite;
+}
+
+.rectangle--medium {
+    width: 89.5%;
+    animation: spin 70s linear infinite;
+}
+
+.rectangle--small {
+    width: 79%;
+    animation: spin 85s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

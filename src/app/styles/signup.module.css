@@ -15,35 +15,11 @@
    z-index: -1000;
 }
 
-.rectangle--large{
-position: absolute;
-top: 99px;
-left: 579px;
-animation: spin 50s linear infinite;
-}
-
-
-.rectangle--medium{
+/* Where the whole spinning set sits on this page */
+.rectangle__position{
     position: absolute;
-    top: 139px;
-    left: 619px;
-    animation: spin 70s linear infinite;
-}
-
-.rectangle--small{
-    position: absolute;
-    top: 179px;
-    left: 659px;
-    animation: spin 85s linear infinite;
-}
-
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+    top: 99px;
+    left: 579px;
 }
 
 .cta__wrapper{

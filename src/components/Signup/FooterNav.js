@@ -67,19 +67,21 @@ const FooterNav = ({ showProceed }) => {
       </Link>
 
       {showProceed && (
-        <div
-          className={styles['proceed__wrapper']}
-          ref={proceedWrapperRef}
-          onMouseEnter={() => proceedEmphasis.current.play()}
-          onMouseLeave={() => proceedEmphasis.current.reverse()}
-        >
-          <figure>
-            <Image src={Proceed} alt="Proceed" />
-          </figure>
-          <figure className={styles['proceed__arrow--wrapper']} ref={proceedArrowRef}>
-            <Image src={ProceedArrow} alt="Proceed arrow" />
-          </figure>
-        </div>
+        <Link href="/start">
+          <div
+            className={styles['proceed__wrapper']}
+            ref={proceedWrapperRef}
+            onMouseEnter={() => proceedEmphasis.current.play()}
+            onMouseLeave={() => proceedEmphasis.current.reverse()}
+          >
+            <figure>
+              <Image src={Proceed} alt="Proceed" />
+            </figure>
+            <figure className={styles['proceed__arrow--wrapper']} ref={proceedArrowRef}>
+              <Image src={ProceedArrow} alt="Proceed arrow" />
+            </figure>
+          </div>
+        </Link>
       )}
     </>
   )
