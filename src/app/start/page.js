@@ -1,6 +1,8 @@
-"use client"
+"use client";
 
-import React from "react";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import StartLoading from "@/components/Start/StartLoading";
 import styles from "@/app/styles/start.module.css";
 import SpinningRectangles from "@/components/SpinningRectangles";
 import ImageUploader from "@/components/ImageUploader";
@@ -10,64 +12,79 @@ import TitleLeft from "@/assets/start/titleleft.png";
 import CameraRight from "@/assets/start/cameraright.png";
 import TitleRight from "@/assets/start/titleright.png";
 
-export default function page() {
+export default function Page() {
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+
   const handleUpload = async (image) => {
+    setLoading(true);
     console.log("Image recieved", image);
 
-    const response = await fetch("https://us-central1-frontend-simplified.cloudfunctions.net/skinstricPhaseTwo", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    const response = await fetch(
+      "https://us-central1-frontend-simplified.cloudfunctions.net/skinstricPhaseTwo",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          image: image,
+        }),
       },
-      body: JSON.stringify({
-        image: image,
-      }),
-    });
+    );
 
     if (!response.ok) {
       throw new Error("Request failed");
     }
 
     const data = await response.json();
-    console.log("API response", data)
+    console.log("API response", data);
+    localStorage.setItem("analysis", JSON.stringify(data));
+
+    // Redirect to analysis page
+    router.push("/analysis");
   };
 
   return (
     <>
-      <div className={styles["camera__wrappers"]}>
-        <div className={styles["camera__wrapper--left"]}>
-          <SpinningRectangles size={480} />
-          <div className={styles["camera__group"]}>
-            <Image
-              src={CameraLeft}
-              alt="Scan your face here"
-              className={`${styles["camera__icon"]} ${styles["camera__icon--left"]}`}
-            />
-            <Image
-              src={TitleLeft}
-              alt="Allow A.I. to scan your face"
-              className={`${styles["camera__title"]} ${styles["camera__title--left"]}`}
-            />
-          </div>
-        </div>
-        <div className={styles["camera__wrapper--right"]}>
-          <SpinningRectangles size={480} />
-          <div className={styles["camera__group"]}>
-            <ImageUploader onUpload={handleUpload}>
+      {loading ? (
+        <StartLoading />
+      ) : (
+        <div className={styles["camera__wrappers"]}>
+          <div className={styles["camera__wrapper--left"]}>
+            <SpinningRectangles size={480} />
+            <div className={styles["camera__group"]}>
               <Image
-                src={CameraRight}
-                alt="Upload an image of yourself here"
-                className={`${styles["camera__icon--right"]} ${styles["camera__icon"]}`}
+                src={CameraLeft}
+                alt="Scan your face here"
+                className={`${styles["camera__icon"]} ${styles["camera__icon--left"]}`}
               />
-            </ImageUploader>
-            <Image
-              src={TitleRight}
-              alt="Allow A.I. to access gallery"
-              className={`${styles["camera__title"]} ${styles["camera__title--right"]}`}
-            />
+              <Image
+                src={TitleLeft}
+                alt="Allow A.I. to scan your face"
+                className={`${styles["camera__title"]} ${styles["camera__title--left"]}`}
+              />
+            </div>
+          </div>
+          <div className={styles["camera__wrapper--right"]}>
+            <SpinningRectangles size={480} />
+            <div className={styles["camera__group"]}>
+              <ImageUploader onUpload={handleUpload}>
+                <Image
+                  src={CameraRight}
+                  alt="Upload an image of yourself here"
+                  className={`${styles["camera__icon--right"]} ${styles["camera__icon"]}`}
+                />
+              </ImageUploader>
+              <Image
+                src={TitleRight}
+                alt="Allow A.I. to access gallery"
+                className={`${styles["camera__title"]} ${styles["camera__title--right"]}`}
+              />
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 }
