@@ -1,0 +1,75 @@
+.title__wrapper {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 86px;
+    left: 48px;
+}
+
+.title {
+    margin-bottom: 24px;
+}
+
+.shapes__container {
+    display: grid;
+    place-items: center;
+    margin: 0 auto;
+}
+
+.shapes__container > * {
+    grid-area: 1/1;
+}
+
+/* .shapes__container > img {
+opacity: 0;
+} */
+
+/* A 4x4 grid of half-diamond (109px) steps. Each diamond (218px) spans 2x2 cells,
+   so neighbours overlap by half and their edges touch, forming one big diamond */
+.quadrant__container{
+    display: grid;
+    grid-template-columns: repeat(4, 109px);
+    grid-template-rows: repeat(4, 109px);
+    gap: 8px;            /* space between the diamonds */
+}
+
+/* Keep each diamond centered in its area now that the gap makes the area bigger */
+.quadrant__container > * {
+    place-self: center;
+}
+
+.quadrant {
+    cursor: pointer;
+    width: 154px;
+    height: 154px;
+    rotate: 45deg;
+    border: none;
+    display: grid;
+    place-items: center;
+    position: relative;             /* so ::before is measured from here */
+    isolation: isolate;             /* keeps the z-index: -1 layer inside the diamond */
+}
+
+/* The diamond's fill: this layer grows, the title doesn't */
+.quadrant::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: #F3F3F4;
+    z-index: -1;
+    transition: background-color 0.3s ease, scale 0.3s ease-in-out;
+}
+
+.quadrant:hover::before {
+    background-color: #E1E1E2;
+    scale: 1.05;
+}
+
+.quadrant--demographics { grid-area: 1 / 2 / 3 / 4; }  /* top */
+.quadrant--skintype     { grid-area: 2 / 1 / 4 / 3; pointer-event: none}  /* left */
+.quadrant--cosmetic     { grid-area: 2 / 3 / 4 / 5; pointer-event: none}  /* right */
+.quadrant--weather      { grid-area: 3 / 2 / 5 / 4; pointer-event: none}  /* bottom */
+
+.quadrant__title {
+    rotate: -45deg;                 /* undo the tilt so the text is straight */
+}
