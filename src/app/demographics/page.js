@@ -90,7 +90,7 @@ const topOf = (key) => data ? Object.entries(data[key]).sort((a, b) => b[1] - a[
                         <Image src={label === shownLabel ? ActiveIcon : Icon} alt="" />
                         <div className={styles['demo__item--text']}>{label}</div>
                     </div>
-                    <div className={styles['demo__item--right']}>{Math.round(value * 100)}%</div>
+                    <div className={styles['demo__item--right']}>{(value * 100).toFixed(2)}%</div>
                   </div>
                     ))}
                 </div>
