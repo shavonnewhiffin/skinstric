@@ -11,10 +11,13 @@ import Back from '@/assets/signup/back.png'
 import styles from '@/app/styles/footerNav.module.css'
 import Proceed from '@/assets/signup/proceed.png'
 import ProceedArrow from '@/assets/signup/proceedarrow.png'
+import ifWrong from '@/assets/demographics/ifwrong.png'
+import Reset from '@/assets/demographics/reset.png'
+import Confirm from '@/assets/demographics/confirm.png'
 
 gsap.registerPlugin(useGSAP)
 
-const FooterNav = ({ showProceed }) => {
+const FooterNav = ({ showProceed, showMessage }) => {
   // Elements
   const backWrapperRef = useRef(null)
   const proceedWrapperRef = useRef(null)
@@ -50,7 +53,8 @@ const FooterNav = ({ showProceed }) => {
   }, { dependencies: [showProceed] })
 
   return (
-    <>
+    // One row across the bottom: back on the left, message in the middle, actions on the right
+    <footer className={styles['footer__row']}>
       <Link href="/">
         <div
           className={styles['footer__nav--wrapper']}
@@ -65,6 +69,19 @@ const FooterNav = ({ showProceed }) => {
           </figure>
         </div>
       </Link>
+
+      {showMessage && (
+        <div className={styles['ifwrong__wrapper']}>
+          If the A.I. estimate is wrong, please edit to the correct value.
+        </div>
+      )}
+
+      {showMessage && (
+        <div className={styles['message__buttons']}>
+          <Image src={Reset} alt="Reset" />
+          <Image src={Confirm} alt="Confirm" />
+        </div>
+      )}
 
       {showProceed && (
         <Link href="/start">
@@ -83,7 +100,7 @@ const FooterNav = ({ showProceed }) => {
           </div>
         </Link>
       )}
-    </>
+    </footer>
   )
 }
 

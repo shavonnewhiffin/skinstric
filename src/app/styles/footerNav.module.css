@@ -1,9 +1,17 @@
-.footer__nav--wrapper{
-    display: flex;
-    align-items: center;
+/* The whole footer: one row pinned near the bottom, items spread across it */
+.footer__row {
     position: absolute;
     top: 880px;
     left: 32px;
+    right: 32px;
+    display: flex;
+    justify-content: space-between;   /* first item left, last item right, the rest spaced between */
+    align-items: center;
+}
+
+.footer__nav--wrapper{
+    display: flex;
+    align-items: center;
     cursor: pointer;
 }
 
@@ -16,14 +24,21 @@
 }
 
 .proceed__wrapper {
-    position: absolute;
     display: flex;
     align-items: center;
-    top: 880px;
-    right: 32px;
     cursor: pointer;
 }
 
 .proceed__arrow--wrapper {
     margin-left: 24px;
+}
+
+/* Reset + Confirm side by side (demographics page) */
+.message__buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.ifwrong__wrapper {
+    color: #A0A4AB;
 }

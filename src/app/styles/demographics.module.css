@@ -49,14 +49,20 @@
     margin-top: 34px;
 }
 
+.result{
+    text-transform: capitalize;
+}
 
 .demo__results:hover {
     background-color: #E1E1E2
 }
 
-.demo__results:active {
+/* Selected card stays dark (:hover included so hovering doesn't turn it grey) */
+.demo__results:active,
+.demo__results--active,
+.demo__results--active:hover {
     background-color: #1A1B1C;
-    color:white;
+    color: white;
 }
 
 /* MIDDLE RESULTS */
@@ -76,19 +82,40 @@
     font-size: 40px;
     font-weight: 100px;
     margin: 20px 15px;
+    text-transform: capitalize;
 }
 
 .percentage__circle--wrapper {
     width: 384px;
     height: 384px;
-    border-radius: 50%;
-    border: 4px solid #1A1B1C;
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
     top: 136px;
     right: 16px;
+}
+
+/* SVG ring fills the wrapper, behind the number */
+.percentage__ring {
+    position: absolute;
+    inset: 0;
+    rotate: -90deg;            /* start the fill at the top instead of the right */
+}
+
+.ring__track,
+.ring__fill {
+    fill: none;
+    stroke-width: 1;
+}
+
+.ring__track {
+    stroke: #C1C2C3;
+}
+
+.ring__fill {
+    stroke: #1A1B1C;
+    transition: stroke-dasharray 0.5s ease;   /* animates when you click a new row */
 }
 
 .percentage__circle--value {
@@ -125,6 +152,9 @@
     padding: 14px 16px;
     cursor: pointer;
 }
+.demo__right--label{
+    text-transform: uppercase;
+}
 
 .demo__item:hover {
 background-color: #E1E1E2;
@@ -138,6 +168,7 @@ background-color: #E1E1E2;
 
 .demo__item--text {
     margin: 0 12px;
+    text-transform: capitalize;
 }
 
 /* :hover included so the active item keeps its dark color when hovered */
