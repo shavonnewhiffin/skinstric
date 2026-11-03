@@ -1,0 +1,42 @@
+.modal__wrapper {
+    position: absolute;
+    top: 442px;
+    left: 592px;
+    background-color: #1a1b1c;
+    width: 352px;
+    height: 136px;
+    z-index: 10;
+ }
+
+ .allow__message{
+    margin: 14px 15px;
+ }
+
+.modal__divider {
+    position: absolute;
+    top: 100px;
+}
+
+ .modal__buttons--wrapper {
+    position: absolute;
+    left: 191px;
+    top: 101px;
+    cursor: pointer;
+    margin-left: 24px;
+ }
+
+.modal__button {
+   width: 68px;
+    height: 35px;
+    background-color: #1a1b1c;
+    border: none;
+    cursor: pointer;
+}
+
+ .modal__button--deny {
+    color: #A0A4AB;
+ }
+
+  .modal__button--allow{
+    color: #FCFCFC;
+  }

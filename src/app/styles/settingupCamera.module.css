@@ -1,0 +1,26 @@
+.camera__loading--wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.loading__hero--wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 330px;
+    left: 755px;
+}
+
+.camera__img{
+    margin-bottom: 12px;
+}
+
+.bulletpoints__wrapper {
+    position: absolute;
+    top: 726px;
+    left: 570px;
+}
