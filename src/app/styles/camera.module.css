@@ -1,0 +1,65 @@
+.camera__page {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.camera__video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    scale: -1 1;
+}
+
+/* Covers the video exactly */
+.camera__preview {
+    position: absolute;
+    inset: 0;
+}
+.caption {
+    position: absolute;
+    top: 254px;
+    left: 915px;
+}
+
+.capture__button {
+    position: absolute;
+    right: 32px;
+    top: 50%;
+    translate: 0 -50%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.instructions__wrapper {
+    position: absolute;
+    top: 854px;
+    left: 688px;
+}
+
+.instructions__wrapper--none{
+    display: none;
+}
+
+.button__retake {
+    cursor: pointer;
+    background-color: #FFF;
+    border: none;
+    padding: 8px 24px;
+}
+
+.button__use {
+    cursor: pointer;
+    background-color: #1A1B1C;
+    color: #FFF;
+    border: none;
+    padding: 8px 24px;
+    margin-left: 16px;
+}
+
+.button__options{
+    position: absolute;
+    top: 900px;
+    left: 800px;
+}

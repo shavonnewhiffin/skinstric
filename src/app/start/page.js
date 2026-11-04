@@ -70,7 +70,10 @@ export default function Page() {
                 className={`${styles["camera__title"]} ${styles["camera__title--left"]}`}
               />
             </div>
-            {isVisible && <AccessModal isVisible={isVisible} setIsVisible={setIsVisible} onAllow={() => setCameraAllowed(true)}/>}
+            {isVisible && <AccessModal isVisible={isVisible} setIsVisible={setIsVisible} onAllow={() => {
+                setCameraAllowed(true);
+                setTimeout(() => router.push('/camera'), 2000);
+            }}/>}
           </div>
           <div className={styles["camera__wrapper--right"]}>
             <SpinningRectangles size={480} />
