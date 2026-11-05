@@ -66,9 +66,9 @@ opacity: 0;
 }
 
 .quadrant--demographics { grid-area: 1 / 2 / 3 / 4; }  /* top */
-.quadrant--skintype     { grid-area: 2 / 1 / 4 / 3; pointer-event: none}  /* left */
-.quadrant--cosmetic     { grid-area: 2 / 3 / 4 / 5; pointer-event: none}  /* right */
-.quadrant--weather      { grid-area: 3 / 2 / 5 / 4; pointer-event: none}  /* bottom */
+.quadrant--skintype     { grid-area: 2 / 1 / 4 / 3; cursor: not-allowed}  /* left */
+.quadrant--cosmetic     { grid-area: 2 / 3 / 4 / 5; cursor: not-allowed}  /* right */
+.quadrant--weather      { grid-area: 3 / 2 / 5 / 4; cursor: not-allowed}  /* bottom */
 
 .quadrant__title {
     rotate: -45deg;                 /* undo the tilt so the text is straight */

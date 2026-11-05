@@ -109,7 +109,7 @@ const SignupForm = () => {
                 <Image src={Cta} alt="Click to type" />
               )}
             </div>
-            <form className={styles['input__wrapper']} onSubmit={handleSubmit}>
+            <form className={`${styles['input__wrapper']} ${loading ? styles['input__wrapper--none'] : ''}`} onSubmit={handleSubmit}>
               {step === 1 && (
                 <input
                   type="text"

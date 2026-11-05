@@ -34,9 +34,16 @@
 }
 
 /* Reset + Confirm side by side (demographics page) */
-.message__buttons {
+.figure__arrow--wrapper-right {
     display: flex;
-    gap: 8px;
+    gap: 16px;
+    align-items: center;
+}
+
+.right__arrow--text{
+    font-size: 14px;
+    font-weight: bold;
+    color: #767778;
 }
 
 .ifwrong__wrapper {

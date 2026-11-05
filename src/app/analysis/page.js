@@ -3,6 +3,7 @@ import Image from 'next/image'
 import AiTitle from '@/assets/analysis/title.png'
 import Para from '@/assets/analysis/analysispara.png'
 import AnalysisShapes from '@/components/Analysis/AnalysisShapes'
+import FooterNav from '@/components/Signup/FooterNav'
 
 const Page = () => {
   return (
@@ -12,6 +13,7 @@ const Page = () => {
         <Image src={Para} alt="A.I. has estimated the following. Fix estimated information if needed." className={styles['title__para']} />
       </div>
       <AnalysisShapes />
+      <FooterNav getSummary/>
     </>
   )
 }

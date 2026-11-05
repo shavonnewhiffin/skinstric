@@ -22,6 +22,7 @@ gsap.registerPlugin(useGSAP)
 const Hero = () => {
   // Elements
   const heroTextRef = useRef(null)
+  const heroTextBottomRef = useRef(null)
   const leftCtaRef = useRef(null)
   const rightCtaRef = useRef(null)
   const leftRectRef = useRef(null)
@@ -39,7 +40,8 @@ const Hero = () => {
     // Hover "Discover A.I.": slide text right, hide the right side
     leftTl.current = gsap
       .timeline({ paused: true })
-      .to(heroTextRef.current, { x: 600, ease: 'none' })
+      .to(heroTextRef.current, { x: 500, ease: 'none' })
+      .to(heroTextBottomRef.current, { stagger: 0.25, x: 650, ease: 'none' })
       .to(rightCtaRef.current, { opacity: 0 }, '<')
       .to(rightRectRef.current, { opacity: 0 }, '<')
       .to(leftArrowRef.current, { scale: 1.05 }, '<')
@@ -47,7 +49,8 @@ const Hero = () => {
     // Hover "Take Test": slide text left, hide the left side, show the multi-line
     rightTl.current = gsap
       .timeline({ paused: true })
-      .to(heroTextRef.current, { x: -600, ease: 'none' })
+      .to(heroTextRef.current, { x: -500, ease: 'none' })
+      .to(heroTextBottomRef.current, { stagger: 0.25, x: -650, ease: 'none' })
       .to(leftCtaRef.current, { opacity: 0 }, '<')
       .to(leftRectRef.current, { opacity: 0 }, '<')
       .to(rightRectRef.current, { opacity: 0 }, '<')
@@ -99,8 +102,9 @@ const Hero = () => {
       </div>
 
       {/* Center */}
-      <div className={styles['hero__img--container']} ref={heroTextRef}>
-        <Image src={HeroText} alt="Sophisticated skincare" />
+      <div className={styles['hero__img--container']} >
+        <h2 className={styles['hero__text--top']} ref={heroTextRef}> Sophisticated </h2>
+        <h2 className={styles['hero__text--bottom']} ref={heroTextBottomRef}>skincare</h2>
       </div>
 
       {/* Right side */}

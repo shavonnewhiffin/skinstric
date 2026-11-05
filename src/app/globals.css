@@ -11,5 +11,9 @@ background-color: #FCFCFC;
 
 nav{
   padding: 12px;
-  width: full;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
 }

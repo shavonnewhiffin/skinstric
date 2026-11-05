@@ -11,13 +11,12 @@ import Back from '@/assets/signup/back.png'
 import styles from '@/app/styles/footerNav.module.css'
 import Proceed from '@/assets/signup/proceed.png'
 import ProceedArrow from '@/assets/signup/proceedarrow.png'
-import ifWrong from '@/assets/demographics/ifwrong.png'
-import Reset from '@/assets/demographics/reset.png'
-import Confirm from '@/assets/demographics/confirm.png'
+import rightArrow from '@/assets/demographics/rightarrow.png'
+import Summary from '@/assets/footerNav/getSummary.png'
 
 gsap.registerPlugin(useGSAP)
 
-const FooterNav = ({ showProceed, showMessage }) => {
+const FooterNav = ({ showProceed, showMessage, getSummary }) => {
   // Elements
   const backWrapperRef = useRef(null)
   const proceedWrapperRef = useRef(null)
@@ -72,15 +71,26 @@ const FooterNav = ({ showProceed, showMessage }) => {
 
       {showMessage && (
         <div className={styles['ifwrong__wrapper']}>
-          If the A.I. estimate is wrong, please edit to the correct value.
+          A.I estimates can be incorrect.
         </div>
       )}
 
       {showMessage && (
-        <div className={styles['message__buttons']}>
-          <Image src={Reset} alt="Reset" />
-          <Image src={Confirm} alt="Confirm" />
+        <Link href="/">
+        <div className={styles['figure__arrow--wrapper-right']}>
+          <p className={styles['right__arrow--text']}>HOME</p>
+          <Image src={rightArrow} alt="Home" />
         </div>
+        </Link>
+      )}
+
+      {getSummary && (
+        <Link href="/demographics">
+        <div className={styles['figure__arrow--wrapper-right']}>
+          <Image src={Summary} alt="Get summary" />
+          <Image src={rightArrow} alt="" />
+        </div>
+        </Link>
       )}
 
       {showProceed && (
