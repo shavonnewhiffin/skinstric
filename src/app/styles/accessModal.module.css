@@ -1,7 +1,6 @@
+/* Lives in the left camera's grid cell, so it's centered over that camera at any screen size */
 .modal__wrapper {
-    position: absolute;
-    top: 442px;
-    left: 592px;
+    position: relative;     /* the divider and buttons are measured from here */
     background-color: #1a1b1c;
     width: 352px;
     height: 136px;

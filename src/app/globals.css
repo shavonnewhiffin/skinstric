@@ -16,4 +16,5 @@ nav{
 
 a {
   text-decoration: none;
+  color: inherit; /* no blue/purple link color on text links like ENTER EXPERIENCE */
 }

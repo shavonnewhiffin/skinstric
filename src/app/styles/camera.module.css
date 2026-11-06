@@ -1,7 +1,9 @@
 .camera__page {
     width: 100%;
-    height: 100vh;
+    /* Fill the screen under the 88px navbar (100vh alone pushed the bottom buttons off screen) */
+    height: calc(100dvh - 88px);
     position: relative;
+    overflow: hidden;
 }
 
 .camera__video {
@@ -16,10 +18,12 @@
     position: absolute;
     inset: 0;
 }
+/* "Great shot!" centered near the top */
 .caption {
     position: absolute;
-    top: 254px;
-    left: 915px;
+    top: 120px;
+    left: 50%;
+    translate: -50% 0;
 }
 
 .capture__button {
@@ -32,10 +36,18 @@
     cursor: pointer;
 }
 
+/* Tips centered near the bottom */
 .instructions__wrapper {
     position: absolute;
-    top: 854px;
-    left: 688px;
+    bottom: 48px;
+    left: 50%;
+    translate: -50% 0;
+    max-width: 90vw;
+}
+
+.instructions__wrapper img {
+    max-width: 100%;
+    height: auto;
 }
 
 .instructions__wrapper--none{
@@ -58,8 +70,27 @@
     margin-left: 16px;
 }
 
+/* Retake / Use this photo centered near the bottom */
 .button__options{
     position: absolute;
-    top: 900px;
-    left: 800px;
+    bottom: 48px;
+    left: 50%;
+    translate: -50% 0;
+    display: flex;
+    white-space: nowrap;
+}
+
+/* Phones: capture button at the bottom center instead of the right edge */
+@media (max-width: 600px) {
+    .capture__button {
+        top: auto;
+        right: auto;
+        bottom: 140px;
+        left: 50%;
+        translate: -50% 0;
+    }
+
+    .instructions__wrapper {
+        bottom: 32px;
+    }
 }

@@ -1,7 +1,7 @@
 .rectangle--left {
     position: absolute;
     top: 179px;
-    left: -301x;
+    left: 0;
     z-index: -50;
 }
 
@@ -31,7 +31,7 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    padding-top: 250px;
+    padding-top: 300px;
     /* Full-width text box: let hovers pass through to the CTAs underneath */
     pointer-events: none;
     /* position: absolute;
@@ -58,16 +58,200 @@
 }
 
 .cta {
-padding-left: 8px;
+    padding-left: 8px;
 }
 
-.hero__text--top {
+.hero__text{
  font-size: 128px;
  font-weight: 300;
 }
 
+
 .hero__text--bottom{
-    font-size: 128px;
-    font-weight: 300;
-    margin-top: -40px;
+ margin-top: -30px;
+}
+
+.cta__discover {
+cursor: not-allowed;
+}
+
+.rec__wrapper{
+    display: none;
+}
+
+@media (max-width: 1440px){
+
+.hero__text{
+    font-size: 100px;
+}
+
+.skinstric__description--wrapper{
+    bottom: 80px;
+    left: 60px;
+}
+
+.rectangle--right{
+    right: 10px;
+}
+
+.rectangle--left {
+    left: 10px;
+}
+
+.cta__wrapper--left{
+    left: 70px;
+}
+
+.cta__wrapper--right{
+    right: 80px;
+    top: 460px;
+}
+
+}
+
+@media (max-width: 1025px){
+
+.hero__text{
+    font-size: 90px;
+}
+
+.rectangle--right{
+    right: 5px;
+}
+
+.rectangle--left {
+    left: 5px;
+}
+}
+
+@media (max-width: 1023px){
+
+/* Center the hero text on the screen, the same center the diamonds use,
+   then nudge it up a little to make room for the experience section below */
+.hero__img--container {
+    position: absolute;
+    inset: 0;
+    padding-top: 0;
+    translate: 0 -60px;
+}
+
+.hero__text{
+    font-size: 70px;
+}
+
+.hero__text--bottom{
+    margin-top: -20px;
+}
+
+/* Multi is invisible (opacity 0) but would still sit over ENTER EXPERIENCE and block clicks */
+.rectangle--right, .rectangle--left, .rectangle--multi{
+ display: none
+}
+
+.cta__wrapper--left, .cta__wrapper--right {
+    display: none;
+}
+
+.hero__description {
+    width: 300px;
+    text-align: center;
+    color: #1a1b1c83;
+}
+
+.skinstric__description--wrapper{
+    display: none;
+}
+
+.experience__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* It's centered in the same grid cell as the diamonds,
+       so translate (not margin) pushes it below the hero text */
+    translate: 0 100px;
+}
+
+.experience__cta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer; 
+  margin-top: 16px;
+}
+
+.experience__text {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.rec__wrapper{
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: -1000;
+    display: grid;
+    place-items: center;
+    /* Keep the grid itself centered even when the 764px diamond is wider than the screen */
+    place-content: center;
+}
+
+.rec__wrapper > * {
+    grid-area: 1 / 1;
+}
+
+}
+
+@media(max-width: 784px){
+    .large__rec, .small__rec {
+        transform: scale(0.8);
+    }
+
+    .hero__img--container {
+        translate: 0 -55px;
+    }
+
+    .hero__text {
+        font-size: 60px;
+    }
+
+    .hero__description {
+        font-size: 14px;
+    }
+
+    .experience__wrapper {
+        translate: 0 90px;
+    }
+
+    .experience__text {
+        font-size: 12px;
+    }
+}
+
+/* Phones */
+@media(max-width: 480px){
+    .large__rec, .small__rec {
+        transform: scale(0.6);
+    }
+
+    .hero__img--container {
+        translate: 0 -45px;
+    }
+
+    .hero__text {
+        font-size: 44px;
+    }
+
+    .hero__text--bottom{
+        margin-top: -12px;
+    }
+
+    .hero__description {
+        width: 240px;
+        font-size: 13px;
+    }
+
+    .experience__wrapper {
+        translate: 0 75px;
+    }
 }

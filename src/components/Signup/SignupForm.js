@@ -79,11 +79,10 @@ const SignupForm = () => {
       <div className={styles['test__wrapper']}>
         <Image src={ToStartAnalysis} alt="To start analysis" />
       </div>
+      {/* Covers the screen; everything inside is stacked in the center */}
       <div className={styles['form__wrapper']}>
         <div className={styles['rectangle__wrapper']}>
-          <div className={styles['rectangle__position']}>
-            <SpinningRectangles />
-          </div>
+          <SpinningRectangles />
         </div>
 
         {step === 3 ? (

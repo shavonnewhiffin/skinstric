@@ -1,9 +1,10 @@
-/* The whole footer: one row pinned near the bottom, items spread across it */
+/* The whole footer: one row pinned to the bottom of the screen, items spread across it */
 .footer__row {
-    position: absolute;
-    top: 880px;
+    position: fixed;
+    bottom: 32px;
     left: 32px;
     right: 32px;
+    z-index: 10;
     display: flex;
     justify-content: space-between;   /* first item left, last item right, the rest spaced between */
     align-items: center;
@@ -48,4 +49,23 @@
 
 .ifwrong__wrapper {
     color: #A0A4AB;
+}
+
+
+/* Smaller screens scroll, so give the footer a solid bar to keep scrolling content from showing through it */
+@media (max-width: 1023px) {
+    .footer__row {
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 16px;
+        background-color: #FCFCFC;
+    }
+}
+
+/* Phones: no room for the middle message between Back and Home */
+@media (max-width: 600px) {
+    .ifwrong__wrapper {
+        display: none;
+    }
 }

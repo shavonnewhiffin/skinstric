@@ -13,6 +13,8 @@
 .shapes__container {
     display: grid;
     place-items: center;
+    place-content: center;   /* stay centered even when the 764px shape is wider than the screen */
+    overflow-x: clip;        /* trim the shapes at the screen edges instead of scrolling sideways */
     margin: 0 auto;
 }
 
@@ -72,4 +74,25 @@ opacity: 0;
 
 .quadrant__title {
     rotate: -45deg;                 /* undo the tilt so the text is straight */
+}
+
+/* Tablets and phones: title goes back into the normal flow above the shapes */
+@media (max-width: 768px) {
+    .title__wrapper {
+        position: static;
+        padding: 24px 16px 0;
+    }
+
+    .title__para {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Phones: zoom shrinks the shapes AND the space they take up (unlike scale) */
+@media (max-width: 600px) {
+    .shapes__container {
+        zoom: 0.7;
+        margin-bottom: 80px;     /* room for the fixed footer */
+    }
 }

@@ -9,7 +9,8 @@ import Link from 'next/link'
 import LeftRectangle from '@/assets/hero/leftrectangle.png'
 import RightRectangle from '@/assets/hero/rightrectangle.png'
 import MultiLine from '@/assets/hero/multiline.png'
-import HeroText from '@/assets/hero/herotext.png'
+import SmallRec from '@/assets/hero/smallrec.png'
+import LargeRec from '@/assets/hero/largerec.png'
 import Description from '@/assets/hero/skinstricpara.png'
 import LeftArrow from '@/assets/hero/leftarrow.png'
 import RightArrow from '@/assets/hero/rightarrow.png'
@@ -21,6 +22,7 @@ gsap.registerPlugin(useGSAP)
 
 const Hero = () => {
   // Elements
+  const hero = useRef(null)
   const heroTextRef = useRef(null)
   const heroTextBottomRef = useRef(null)
   const leftCtaRef = useRef(null)
@@ -37,11 +39,12 @@ const Hero = () => {
   const multiLinePulse = useRef(null)
 
   useGSAP(() => {
+    gsap.from(hero.current, { opacity: 0, duration: 1.2, ease:'power2.out' })
     // Hover "Discover A.I.": slide text right, hide the right side
     leftTl.current = gsap
       .timeline({ paused: true })
       .to(heroTextRef.current, { x: 500, ease: 'none' })
-      .to(heroTextBottomRef.current, { stagger: 0.25, x: 650, ease: 'none' })
+      .to(heroTextBottomRef.current, { stagger: 0.05, x: 650, ease: 'none' })
       .to(rightCtaRef.current, { opacity: 0 }, '<')
       .to(rightRectRef.current, { opacity: 0 }, '<')
       .to(leftArrowRef.current, { scale: 1.05 }, '<')
@@ -79,7 +82,7 @@ const Hero = () => {
   }
 
   return (
-    <div className="hero">
+    <div className={styles['hero']}>
       {/* Left side */}
       <Image
         src={LeftRectangle}
@@ -93,7 +96,7 @@ const Hero = () => {
         onMouseLeave={() => leftTl.current.reverse()}
         ref={leftCtaRef}
       >
-        <figure>
+        <figure className={styles['cta__discover']}>
           <Image src={LeftArrow} alt="" ref={leftArrowRef} />
         </figure>
         <figure className={styles.cta}>
@@ -102,9 +105,22 @@ const Hero = () => {
       </div>
 
       {/* Center */}
-      <div className={styles['hero__img--container']} >
-        <h2 className={styles['hero__text--top']} ref={heroTextRef}> Sophisticated </h2>
-        <h2 className={styles['hero__text--bottom']} ref={heroTextBottomRef}>skincare</h2>
+      <div className={styles['rec__wrapper']}>
+        <Image src={SmallRec} className={styles['small__rec']}alt=""/>
+        <Image src={LargeRec} alt="" className={styles['large__rec']}/>
+        <div className={styles['experience__wrapper']}>
+        <p className= {styles['hero__description']}>Skinstric developed A.I. that creates a highly personalized routine tailored to what your skin needs.</p>
+       <Link href="/signup">
+        <div className={styles['experience__cta']}>
+        <p className= {styles['experience__text']}>ENTER EXPERIENCE</p>
+        <Image src={RightArrow} alt=""/>
+        </div>
+        </Link>
+      </div>
+      </div>
+      <div className={styles['hero__img--container']} ref={hero} >
+        <h2 className={`${styles['hero__text--top']} ${styles['hero__text']}`} ref={heroTextRef}> Sophisticated </h2>
+        <h2 className={`${styles['hero__text--bottom']} ${styles['hero__text']}`} ref={heroTextBottomRef}>skincare</h2>
       </div>
 
       {/* Right side */}

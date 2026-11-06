@@ -14,7 +14,12 @@
     flex-direction: column;
     justify-content: center;
     gap: 24px;
-    margin-bottom: 100px;
+    margin-bottom: 48px;    /* leaves room for the fixed footer under the cards on a 900px-tall screen */
+}
+
+.demo__upper--wrapper img {
+    max-width: 100%;
+    height: auto;
 }
 
 /* RESULTS DATA SECTION */
@@ -176,4 +181,97 @@ background-color: #E1E1E2;
 .demo__item--active:hover {
     background-color: #1A1B1C;
     color: white;
+}
+
+/* Room at the bottom so the fixed footer never covers the results */
+.demo__results--wrapper {
+    padding-bottom: 100px;
+}
+
+/* Laptops / tablets: not enough width for 3 columns,
+   so the big middle card goes on top and the two side columns sit under it */
+@media (max-width: 1279px) {
+    .demo__results--container {
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .demo__results--middle {
+        order: -1;              /* move it first */
+        flex-basis: 100%;
+        max-width: none;
+        margin: 0;
+    }
+
+    .demo__results--right {
+        flex: 1;
+        max-width: none;
+    }
+
+    .demo__right--upper,
+    .demo__item {
+        max-width: none;
+    }
+
+    .demo__upper--wrapper {
+        margin-bottom: 48px;
+    }
+}
+
+/* Phones: everything full width, one under the other */
+@media (max-width: 767px) {
+    .row {
+        margin: 0;
+        padding: 0 16px;
+    }
+
+    .demo__upper--wrapper {
+        margin: 24px 0 32px;
+        gap: 16px;
+    }
+
+    /* Race / Age / Gender cards side by side in a row */
+    .demo__results--left {
+        flex-direction: row;
+        max-width: none;
+        gap: 8px;
+    }
+
+    .demo__results {
+        max-width: none;
+        height: auto;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .label {
+        margin-top: 16px;
+        font-size: 12px;
+    }
+
+    /* Label on top, ring centered under it */
+    .demo__results--middle {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        padding-bottom: 24px;
+    }
+
+    .highlight {
+        align-self: flex-start;
+        font-size: 32px;
+    }
+
+    .percentage__circle--wrapper {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: min(384px, 70vw);
+        height: min(384px, 70vw);
+    }
+
+    .demo__results--right {
+        flex-basis: 100%;
+        height: auto;
+    }
 }

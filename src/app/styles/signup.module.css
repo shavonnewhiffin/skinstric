@@ -7,44 +7,50 @@
     scale: 0.8;
 }
 
+/* Covers the screen. Every child sits in the same grid cell, in the center,
+   so the rectangles, "Click to type", the input and the success message all line up */
+.form__wrapper {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    place-content: center;
+    overflow: hidden;           /* hides the corners that poke out while spinning */
+    pointer-events: none;       /* let clicks through to the footer/nav... */
+}
+
+.form__wrapper > * {
+    grid-area: 1 / 1;
+    pointer-events: auto;       /* ...but keep the form itself clickable */
+}
+
 .rectangle__wrapper{
-   /* Covers the screen and hides the corners that poke out while spinning */
-   position: absolute;
-   inset: 0;
-   overflow: hidden;
-   z-index: -1000;
+    z-index: -1000;
+    pointer-events: none;
 }
 
-/* Where the whole spinning set sits on this page */
-.rectangle__position{
-    position: absolute;
-    top: 99px;
-    left: 579px;
-}
-
+/* Sits above the input: the bottom margin pushes it up (margin, not translate,
+   so the fixed loading message inside it can still center on the screen) */
 .cta__wrapper{
-    position: absolute;
-    top: 422px;
-    left: 905px;
+    margin-bottom: 120px;
 } 
 
-.input__underline {
-position: absolute;
-top: 512px;
-left: 751px;
+/* Input, underline and error stacked in a column */
+.input__wrapper {
+    position: relative;         /* the error is measured from here */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .input__field {
-position: absolute;
-top: 448px;
-left: 750px;
-width: 100%;
-max-width: 420px;
+width: 420px;
+max-width: 90vw;
 text-align: center;
 font-size: 50px;
 height: auto;
 border: none;
-background-color: #FCFCFC;
+background-color: transparent;
 }
 
 .input__wrapper--none {
@@ -58,11 +64,15 @@ background-color: #FCFCFC;
 .input__field:focus {
     outline: none;
 }
+
+.input__underline {
+    max-width: 90vw;
+    height: auto;
+}
+
 .success__wrapper {
-    position: absolute;
-    top: 430px;
-    left: 750px;
     width: 420px;
+    max-width: 90vw;
     text-align: center;
 }
 
@@ -79,10 +89,12 @@ background-color: #FCFCFC;
 }
 
 .error {
+    /* Hangs below the underline without pushing the input up */
     position: absolute;
-    top: 530px;
-    left: 750px;
+    top: 100%;
+    margin-top: 8px;
     width: 420px;
+    max-width: 90vw;
     text-align: center;
     font-size: 14px;
     color: #C0392B;
@@ -118,4 +130,15 @@ background-color: #FCFCFC;
 /* Each BsDot has lots of empty space around the dot, so pull them closer */
 .loading__icons svg {
     margin: 0 -6px;
+}
+/* Phones: smaller input text so "Introduce Yourself" fits on one line */
+@media (max-width: 480px) {
+    .input__field,
+    .input__field--location {
+        font-size: 32px;
+    }
+
+    .success__title {
+        font-size: 32px;
+    }
 }

@@ -4,6 +4,7 @@
   justify-content: center;
   gap: 200px; /* space between the two sets */
   margin-top: 152px; /* 88px navbar + 152px = 240px from the top */
+  overflow-x: clip; /* hide spinning corners that poke past the screen edge (no sideways scroll) */
 }
 
 /* Grid stacking: every child sits in the same cell, centered on top of each other */
@@ -50,20 +51,61 @@
 
 /* "Preparing Analysis" Loading State */
 
+/* Covers the screen; the rectangles and the text are stacked in the center */
 .start__loading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
 }
 
-.loading__rectangles {
-  position: relative;
+.start__loading > * {
+  grid-area: 1 / 1;
 }
 
-.loading__wrapper {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Shrink the 764px set on small screens (!important beats its inline size) */
+.loading__rectangles > * {
+  width: min(764px, 90vw) !important;
+  height: min(764px, 90vw) !important;
+}
+
+/* Two 480px sets + a 200px gap need ~1160px, so shrink the gap first */
+@media (max-width: 1200px) {
+  .camera__wrappers {
+    gap: 0;
+  }
+}
+
+/* Not enough room side by side: stack them, one under the other */
+@media (max-width: 1023px) {
+  .camera__wrappers {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+  }
+}
+
+/* Phones: shrink the spinning sets so they fit the screen */
+@media (max-width: 480px) {
+  /* The first child is the SpinningRectangles wrapper; !important beats its inline size */
+  .camera__wrapper--left > :first-child,
+  .camera__wrapper--right > :first-child {
+    width: 340px !important;
+    height: 340px !important;
+  }
+
+  /* No room beside the cameras, so center the titles above / below them */
+
+  .camera__title--left {
+    top: -65px;
+    left: 140%;
+    translate: -50% 0;
+  }
+
+  .camera__title--right {
+    top: 125px;
+    left: -30px;
+    translate: -50% 0;
+  }
 }
