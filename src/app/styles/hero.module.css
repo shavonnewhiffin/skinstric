@@ -26,17 +26,14 @@
     left: 32px;
 }
 
-.hero__img--container {
+.hero__text--container {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    padding-top: 300px;
+    padding-top: 250px;
     /* Full-width text box: let hovers pass through to the CTAs underneath */
     pointer-events: none;
-    /* position: absolute;
-    top: 361px;
-    left: 620px; */
 }
 
 .cta__wrapper{

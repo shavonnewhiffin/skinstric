@@ -118,7 +118,7 @@ const Hero = () => {
         </Link>
       </div>
       </div>
-      <div className={styles['hero__img--container']} ref={hero} >
+      <div className={styles['hero__text--container']} ref={hero} >
         <h2 className={`${styles['hero__text--top']} ${styles['hero__text']}`} ref={heroTextRef}> Sophisticated </h2>
         <h2 className={`${styles['hero__text--bottom']} ${styles['hero__text']}`} ref={heroTextBottomRef}>skincare</h2>
       </div>
