@@ -8,7 +8,7 @@ import styles from '@/app/styles/camera.module.css'
 import Capture from '@/assets/camera/take-pic.png'
 import Caption from '@/assets/camera/caption.png'
 import Text from '@/assets/camera/whitebullets.png'
-import StartLoading from '@/components/Start/StartLoading'
+import StartLoading from '@/components/start/StartLoading'
 
 const Page = () => {
 const router = useRouter();
@@ -59,7 +59,7 @@ const handleCapture = () => {
 async function sendPhoto(photo) {
     setLoading(true)
     // POST the image to the Phase 2 API and wait for its answer
-    const res = await fetch (
+    try{const res = await fetch (
                      "https://us-central1-frontend-simplified.cloudfunctions.net/skinstricPhaseTwo",
                      {
                         method: "POST",
@@ -68,9 +68,10 @@ async function sendPhoto(photo) {
                         // The API expects { image: "data:image/jpeg;base64,..." }
                         body: JSON.stringify({ image: photo }),
                      }
-                )
+                )} catch {
                 // Stop here if the API returned an error
                 if(!res.ok) throw new Error("Request failed");
+                } finally {
                 // Turn the API's response into an object (race / age / gender scores)
                 const data = await res.json()
                 console.log('uploaded', data)
@@ -78,6 +79,7 @@ async function sendPhoto(photo) {
                 localStorage.setItem("analysis", JSON.stringify(data))
                 // Go to the analysis page
                 router.push('/analysis')
+                }
 }
 
   return (

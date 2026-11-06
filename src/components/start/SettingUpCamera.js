@@ -1,6 +1,5 @@
-import React from 'react'
 import Image from 'next/image'
-import SpinningRectangles from '../SpinningRectangles'
+import SpinningRectangles from '@/components/shared/SpinningRectangles'
 import Camera from '@/assets/settingUpCamera/camera.png'
 import Points from '@/assets/settingUpCamera/bulletpoints.png'
 import SettingUp from '@/assets/settingUpCamera/settingupcamera.png'

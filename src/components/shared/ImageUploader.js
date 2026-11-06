@@ -1,9 +1,8 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useRef } from 'react'
 
 const ImageUploader = ({ onUpload, children }) => {
-    const [base64Image, setBase64Image] = useState(null);
     const fileInputRef = useRef(null);
 
     const handleImageUpload = (event) => {
@@ -14,8 +13,6 @@ const ImageUploader = ({ onUpload, children }) => {
 
         // When the reader is done reading:
         reader.onloadend = () => {
-            // Set image to the result
-            setBase64Image(reader.result);
             // Call onUpload with Base64 image (if the parent passed one)
             onUpload?.(reader.result);
         }

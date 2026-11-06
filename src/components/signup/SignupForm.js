@@ -1,10 +1,10 @@
 "use client"
 
 import { useState, useRef } from "react";
-import FooterNav from '../../components/Signup/FooterNav'
+import FooterNav from '@/components/shared/FooterNav'
 import Image from "next/image";
 import ToStartAnalysis from "@/assets/signup/tostartanalysis.png";
-import SpinningRectangles from "@/components/SpinningRectangles";
+import SpinningRectangles from "@/components/shared/SpinningRectangles";
 import Cta from "@/assets/signup/clicktotype.png";
 import Underline from "@/assets/signup/underline.png";
 import styles from '@/app/styles/signup.module.css'

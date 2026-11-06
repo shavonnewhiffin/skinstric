@@ -1,6 +1,5 @@
-import React from "react";
 import Image from "next/image";
-import SpinningRectangles from "../SpinningRectangles";
+import SpinningRectangles from "@/components/shared/SpinningRectangles";
 import Preparing from "@/assets/start/preparing.png";
 import styles from "@/app/styles/start.module.css";
 

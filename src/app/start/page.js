@@ -2,17 +2,17 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import StartLoading from "@/components/Start/StartLoading";
-import AccessModal from "@/components/AccessModal/AccessModal";
+import StartLoading from "@/components/start/StartLoading";
+import AccessModal from "@/components/start/AccessModal";
 import styles from "@/app/styles/start.module.css";
-import SpinningRectangles from "@/components/SpinningRectangles";
-import ImageUploader from "@/components/ImageUploader";
+import SpinningRectangles from "@/components/shared/SpinningRectangles";
+import ImageUploader from "@/components/shared/ImageUploader";
 import Image from "next/image";
 import CameraLeft from "@/assets/start/cameraleft.png";
 import TitleLeft from "@/assets/start/titleleft.png";
 import CameraRight from "@/assets/start/cameraright.png";
 import TitleRight from "@/assets/start/titleright.png";
-import { SettingUpCamera } from "@/components/SettingUpCamera/SettingUpCamera";
+import { SettingUpCamera } from "@/components/start/SettingUpCamera";
 
 export default function Page() {
   const router = useRouter();

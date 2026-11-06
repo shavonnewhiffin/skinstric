@@ -2,8 +2,8 @@ import styles from '@/app/styles/analysis.module.css'
 import Image from 'next/image'
 import AiTitle from '@/assets/analysis/title.png'
 import Para from '@/assets/analysis/analysispara.png'
-import AnalysisShapes from '@/components/Analysis/AnalysisShapes'
-import FooterNav from '@/components/Signup/FooterNav'
+import AnalysisShapes from '@/components/analysis/AnalysisShapes'
+import FooterNav from '@/components/shared/FooterNav'
 
 const Page = () => {
   return (

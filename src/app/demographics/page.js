@@ -8,7 +8,7 @@ import DemoTitle from '@/assets/demographics/demotitle.png'
 import Predicted from '@/assets/demographics/predicted.png'
 import Icon from '@/assets/demographics/icon.png'
 import ActiveIcon from '@/assets/demographics/iconactive.png'
-import FooterNav from '@/components/Signup/FooterNav'
+import FooterNav from '@/components/shared/FooterNav'
 
 
 const Page = () => {
@@ -29,7 +29,6 @@ useEffect(() => {
 }, [])
 
 
-const options = data ? data[category]: {};
 const sortedOptions = data ? Object.entries(data[category]).sort((a, b) => b[1] - a[1]) : [] 
 const shownLabel = selected ?? sortedOptions[0]?.[0];
 // The shown race's confidence as a whole number, e.g. 95
